@@ -2,15 +2,15 @@
 import React from 'react'
 
 
-const AddEntryBtn = () => {
+interface props {
+    onClick: () => void;
+}
 
-    function handleClick() {
-        alert("Clicked");
-    }
-
+const AddEntryBtn: React.FC<props> = ({ onClick }) => {
+    
     return (
         <div>
-            <button onClick={handleClick} className='p-2 rounded-full bg-blue-600 active:bg-blue-400'>
+            <button className='p-2 rounded-full bg-blue-600 active:bg-blue-400' onClick={onClick}>
                 Add Entry
             </button>
         </div>
