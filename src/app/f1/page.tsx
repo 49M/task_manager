@@ -1,3 +1,7 @@
+import React from 'react'
+import AddEntryBtn from '@/components/AddEntryBtn';
+import InputField from '@/components/InputField';
+
 
 const goals = [
     {
@@ -19,17 +23,26 @@ const goals = [
 
  const Form1 = () => {
     const priorities = goals.filter(goal => goal.priority === "high");
-    const listed = priorities.map((goal) => (
+    const listed = priorities.map((goal) =>
         <li key={goal.task}>
             • {goal.task}
         </li>
-        ) 
     )
     const unordered = <ul>{listed}</ul>
 
     return (
-        <div className="h-[80vh] w-full items-center justify-center flex">
-            {unordered}
+        <div>
+            <div className='mt-20 ml-40'>
+                <AddEntryBtn />
+            </div>
+            <div className="h-[50vh] w-full items-center justify-center flex flex-col">
+                <div className='flex flex-row justify-between space-x-2 p-10 '>
+                    <InputField />
+                    <InputField />
+                    <InputField />
+                </div>
+                {unordered}
+            </div>
         </div>
     )
 }
